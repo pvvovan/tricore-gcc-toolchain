@@ -4,11 +4,18 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name to upload artifacts to (Only needed for manual runs)'
+        required: false
+        default: ''
 
 jobs:
   build:
     name: Publish Release artifacts
     runs-on: ubuntu-26.04
+    permissions:
+      contents: write # Ensures the GITHUB_TOKEN has permission to upload to releases
 
     steps:
       - name: Download artifacts from latest workflow
@@ -16,7 +23,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build.yml
-          branch: ${{ github.event.release.target_commitish }}
+          branch: ${{ github.event.release.target_commitish || 'main' }} # Fallback to main if run manually
           workflow_conclusion: success
           skip_unpack: false
 
@@ -44,6 +51,8 @@ jobs:
       - name: Push release artifacts
         uses: softprops/action-gh-release@v2
         with:
+          # Uses the release tag, the manual text input, or falls back to the package version
+          tag_name: ${{ github.event.release.tag_name || github.event.inputs.tag_name || env.PACKAGE_VERSION }}
           files: |
             linux-bundle/*.tar.gz
             win32-bundle/*.zip
