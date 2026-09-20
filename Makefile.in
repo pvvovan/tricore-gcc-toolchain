@@ -16,17 +16,17 @@ QEMU_PACKAGE := qemu-$(QEMU_VERSION).tar.xz
 QEMU_SRCDIR := $(builddir)/qemu-$(QEMU_VERSION)
 QEMU_DOWNLOAD_URL := https://download.qemu.org/$(QEMU_PACKAGE)
 
-GMP_VERSION := 6.2.1
+GMP_VERSION := 6.3.0
 GMP_PACKAGE := gmp-$(GMP_VERSION).tar.bz2
 GMP_SRCDIR := $(builddir)/gmp-$(GMP_VERSION)
 GMP_DOWNLOAD_URL := https://gcc.gnu.org/pub/gcc/infrastructure/$(GMP_PACKAGE)
 
-MPFR_VERSION := 3.1.6
+MPFR_VERSION := 4.2.2
 MPFR_PACKAGE := mpfr-$(MPFR_VERSION).tar.bz2
 MPFR_SRCDIR := $(builddir)/mpfr-$(MPFR_VERSION)
 MPFR_DOWNLOAD_URL := https://gcc.gnu.org/pub/gcc/infrastructure/$(MPFR_PACKAGE)
 
-MPC_VERSION := 1.0.3
+MPC_VERSION := 1.3.1
 MPC_PACKAGE := mpc-$(MPC_VERSION).tar.gz
 MPC_SRCDIR := $(builddir)/mpc-$(MPC_VERSION)
 MPC_DOWNLOAD_URL := https://gcc.gnu.org/pub/gcc/infrastructure/$(MPC_PACKAGE)
@@ -36,7 +36,7 @@ ISL_PACKAGE := isl-$(ISL_VERSION).tar.bz2
 ISL_SRCDIR := $(builddir)/isl-$(ISL_VERSION)
 ISL_DOWNLOAD_URL := https://gcc.gnu.org/pub/gcc/infrastructure/$(ISL_PACKAGE)
 
-NCURSES_VERSION := 6.5
+NCURSES_VERSION := 6.6
 NCURSES_PACKAGE := ncurses-$(NCURSES_VERSION).tar.gz
 NCURSES_SRCDIR := $(builddir)/ncurses-$(NCURSES_VERSION)
 NCURSES_DOWNLOAD_URL := https://invisible-island.net/archives/ncurses/$(NCURSES_PACKAGE)
@@ -63,7 +63,7 @@ else
 	QEMU_ENV_VARS :=
 endif
 
-CFLAGS := -O2 $(CONFIGURE_DEBUG)
+CFLAGS := -std=gnu17 -O2 $(CONFIGURE_DEBUG)
 CXXFLAGS := -O2 $(CONFIGURE_DEBUG)
 
 ifeq ($(CONFIGURE_DEBUG),-g)
