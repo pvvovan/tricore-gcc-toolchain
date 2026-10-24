@@ -7,14 +7,14 @@
 This chapter refers to building the Tricore cross-compiler directly from the
 host architecture.
 
-Instructions showed here are tested on Ubuntu 22.04 (see
-[Github Actions script](https://github.com/NoMore201/tricore-gcc-toolchain/blob/main/.github/workflows/build.yml)), but should ideally
+Instructions showed here are tested on Ubuntu 22.06 (see
+[Github Actions script](https://github.com/pvvovan/tricore-gcc-toolchain/blob/main/.github/workflows/build.yml)), but should ideally
 work on other Linux distributions and also MSYS2 Windows environment.
 
 Clone the repository:
 
 ```sh
-git clone --recursive https://github.com/NoMore201/tricore-gcc-toolchain
+git clone --recursive https://github.com/pvvovan/tricore-gcc-toolchain
 ```
 
 Install build dependencies:
@@ -34,7 +34,7 @@ make -j$(nproc) stamps/build-gcc-stage2
 This will build and install everything into `/path/to/prefix`.
 
 It is also possible to compile single components of the toolchain. For further information on the available options, refer to `configure` script help page and
-the [Makefile](https://github.com/NoMore201/tricore-gcc-toolchain/blob/main/Makefile.in).
+the [Makefile](https://github.com/pvvovan/tricore-gcc-toolchain/blob/main/Makefile.in).
 
 ### MinGW canadian cross build
 
@@ -48,11 +48,11 @@ Win32 to `tricore-elf`) directly on Linux due to easier setup and the
 reproducibility of the environment.
 
 You can see an example of a canadian cross build in the
-[Github Actions script](https://github.com/NoMore201/tricore-gcc-toolchain/blob/main/.github/workflows/build.yml). First clone the
+[Github Actions script](https://github.com/pvvovan/tricore-gcc-toolchain/blob/main/.github/workflows/build.yml). First clone the
 toolchain repository:
 
 ```sh
-git clone --recursive https://github.com/NoMore201/tricore-gcc-toolchain
+git clone --recursive https://github.com/pvvovan/tricore-gcc-toolchain
 ```
 
 Install build dependencies, including MinGW cross-compiler:

@@ -19,7 +19,7 @@ includes the following software:
 ## Download
 
 Grab the latest pre-compiled toolchain from
-[GitHub releases](https://github.com/NoMore201/tricore-gcc-toolchain/releases).
+[GitHub releases](https://github.com/pvvovan/tricore-gcc-toolchain/releases).
 
 To build manually from sources, please refer to the [build page](./building.md).
 
