@@ -74,6 +74,10 @@ else
 	LDFLAGS := -s
 endif
 
+ifeq ($(CONFIGURE_HOST),--host=x86_64-w64-mingw32)
+	LDFLAGS += -static
+endif
+
 all: stamps/build-qemu stamps/build-gcc-stage2
 
 clean-binutils-tc:
